@@ -1,0 +1,45 @@
+\documentclass{report}
+% \documentclass[12pt, a4paper]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[subsection]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}{Remark}[section]
+\newenvironment{solution}{\begin{proof}[\textbf{Solution}]}{\end{proof}}
+% \newtheorem{proof}{Proof}[section]
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\usepackage{geometry}
+\usepackage{graphicx}
+\counterwithin{figure}{section}
+% \usepackage{graphicx, xcolor, transparent}
+\usepackage{quiver, tikz-cd}
+\usepackage{cite, tcolorbox}
+% \usepackage{lipsum}
+\geometry{left=2.54cm, right=2.54cm, top=3.18cm, bottom=3.18cm}
+
+\title{A Note on Differential Geometry}
+\author{Hifive Zheng}
+\date{\today}
+
+
+\begin{document}
+    \maketitle
+
+
+    \input{chapters/chapter1.tex}
+
+    \chapter{Geometry in Oblique Coordinate System}
+    \section{Covariant and Contravariant}
+
+    \chapter{Geometry as a Manifold}
+
+
+    \begin{thebibliography}{99}
+        \bibitem{1}J.L. Bell, M. Machover, "A course in mathematical logic" , North-Holland (1977)
+        \bibitem{2}Binary relation. Encyclopedia of Mathematics.
+        \bibitem{3}Mapping. Encyclopedia of Mathematics.
+    \end{thebibliography}
+
+\end{document}

@@ -1,0 +1,317 @@
+\section{Curve, Scalar Field and Vector Feild}
+
+We must wander what is a geometry in our space. Is it a curve surface or a field? There are
+two basic views on it. If we think of it as a curve surface, that is to say it's essence is beyond
+our given space. \textit{(Later we'll call it as a submanifold embedded into our given space.)}
+As a curve surface is two-dimensional, a point on the surface can be identified within two coordinates
+$(u, v) \in C \subset \mathbb{R}^2$, where $C$ denotes a collection of points on the curve surface
+and is a subset of $\mathbb{R}^2$. \textit{(We shall clarify what "ponits" actually mean later.)}
+Now we only adopt an intrinsic perspective on the surface without observing it's curvature until we
+use a \textbf{map} $\phi: C \to \mathbb{R}^3, (u,v) \mapsto (x,y,z)=\phi(u,v)$.
+
+\begin{figure}[!ht]
+    \centering
+    \include{chapters/chapter1/fig1}
+\end{figure}
+
+
+\begin{figure}[!ht]
+	\centering
+    \include{chapters/chapter1/fig2}
+    \caption{A scalar field over $\mathbb{R}^2$}
+\end{figure}
+
+
+Another way to think of a geometry is \textbf{scalar field} $f: \mathbb{R}^2 \to \mathbb{R}, (x,y) \mapsto f(x,y)$
+If we write this way: $z=f(x,y)$ where $z$ represents each scalar value onto each point $(x,y)$.
+There is a relationship between $z$ and $(x,y)$ that can be written as $((x,y),z)$ or just $(x,y,z)$.
+All such relationships constitude a set $\mathbb{R}^3=\mathbb{R}^2 \times \mathbb{R}$
+
+However the relationship between $x,y,z$ can be wider given by $F(x,y,z)=0$. $F$ is a strange function that
+can be considered as a constant scalar field. Before we use an simpler example to gain a deeper understanding of it,
+let's clarify some terms in the context.
+
+\begin{definition}[Relation]
+	\cite{1}
+	A relation is a subset of a finite Cartes	`ian power $A^n=A\times\cdots\times A$ of a given set $A$,
+	i.e. a set of tuples $(a_1,\dots,a_n)$ of $n$ elements of $A$.
+
+	A subset $R\subseteq A^n$ is called an $n$-place, or an $n$-ary, relation on $A$.
+	The number \textbf{n} is called the \textbf{rank}, or \textbf{type}, of the relation $R$.
+	The notation $R(a_1,\dots,a_n)$ signifies that $(a_1,\dots,a_n)\in R$.
+
+	The set $A^n$ and the empty subset $\emptyset$ in $R^n$ are called, respectively, the \textbf{universal relation} and the \textbf{zero relation} of rank n on $A$.
+	The diagonal of the set $A^n$, i.e. the set $\Delta={(a,a,\dots,a):a\in A}$ is called the \textbf{equality relation} on $A$.
+
+\end{definition}
+
+The set of all $n$-ary relations on $A$ is a \textbf{Boolean algebra} relative to the operations $\cup, \cap, '$.
+An $(n+1)$-place relation $F$ on $A$ is called functional if for any elements $a_1,\dots,an, a,b$, from $A$
+it follows from $F(a_1,\dots,a_n,a)$ and $F(a_1,\dots,a_n,b)$ that $a=b$.
+
+\begin{definition}[Binary Relation]
+	\cite{2}
+	A binary relation is a predicate on a given set.
+	A binary relation is a special case of a relation. Let $R \subseteq A \times A$.
+	If $(a,b) \in R$, then one says that the element $a$ is in binary relation $R$ to the element $b$.
+	An alternative notation for $(a,b) \in R$ is $aRb$.
+
+	The empty subset $\emptyset$ in $A\times A$ and the set $A\times A$ itself are called, respectively,
+	the nil relation and the universal relation in the set $A$.
+	The diagonal of the set $A\times A$, i.e. the set $\Delta={(a,a):a\in A}$,
+	is the \textbf{equality relation} or the \textbf{identity binary relation} in $A$.
+
+\end{definition}
+
+Let $R,R_1,R_2$ be binary relations in a set $A$. In addition to the set-theoretic operations of union $R_1\cup R_2$,
+intersection $R_1\cap R_2$, and negation or complementation $R'=(A\times A)\backslash R$,
+one has the inversion (also inverse, converse or transpose)
+\[R^{-1}={(a,b):(b,a)\in R},\]
+as well as the operation of multiplication (or composition):
+\[R_1\circ R_2={(a,c)∈A\times A:(\exists b\in A)(aR_1b\ and\ bR_2c)}.\]
+
+\begin{definition}[Mapping]
+	\cite{3}
+	In set theory mappings are special binary relations.A mapping $f$ from a set $A$ to a set $B$ is an (ordered) triple $f=(A,B,G_f)$
+ 	where $Gf\subset A\times B$ such that
+
+	\begin{itemize}
+		\item[(1)] if $(x,y)$ and $(x,y')\in G_f$ then $y=y'$, and
+		\item[(2)] the projection $\pi_1(G_f)=\{x|(x,y)\in G_f\}=A.$
+	\end{itemize}
+
+	Condition (1) expresses that $f$ is single-valued. and condition (2) that it is defined on $A$.
+	$A$ is the \textbf{domain}, $B$ is the \textbf{codomain}, and $G_f$ is the \textbf{graph} of the mapping. Therefore, in this setting, mappings are equal if and only if all three corresponding components (domain, codomain, and graph) are equal.
+	
+	The mapping is usually denoted as $f:A\to B$, and $a\mapsto f(a)$ where $f(a):=b\Leftrightarrow (a,b)\in G_f$ is the value of $f$ at $a$.
+
+\end{definition}
+
+If two mappings $f_1=(A_1,B_1,G_1)$ and $f_2=(A_2,B_2,G_2)$ satisfy $A_1\subset A_2$, $B_1\subset B_2$ and $G_1\subset G_2$
+then $f_2$ is called an \textbf{extension} of $f_1$, and $f_1$ a \textbf{restriction} of $f_2$.
+In this case, $f_1$ is often denoted as $f_2|A_1$ and, clearly, $f_1(a)=f_2(a)$ holds for all $a\in A_1$.
+
+
+
+\subsection{Implicit Function and Implicit Equation}
+
+\begin{center}
+	\begin{tcolorbox}[colback=gray!10,%gray background
+					  colframe=black,% black frame colour
+					  width=12cm,% Use 8cm total width,
+					  arc=1mm, auto outer arc,
+					  boxrule=0.5pt,
+					 ]
+	Notice that functions to be talked below are always $C^{\infty}$ (smooth) without special illustration.
+	\end{tcolorbox}
+\end{center}
+
+A function $f: \mathbb{R}\to\mathbb{R}, x\mapsto y=f(x)$ is a explicit function and scalar filed over $\mathbb{R}$.
+$f$ has good properties that we can define a derivative over it:
+
+\begin{definition}
+	For a real-valued function $f\in C^{k}: \mathbb{R}\to\mathbb{R}$, the \textbf{derivative} on $x_0\in D(f)$ is defined by:
+	\[
+		\left.\frac{\mathrm{d}}{\mathrm{d}x}\right|_{x_0} f :=
+		\lim_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{t},
+	\]
+	for $\Delta x\in\mathbb{R}$.
+\end{definition}
+
+\begin{definition}
+	Construct a function $\frac{\mathrm{d}}{\mathrm{d}x}f: C^{k}\to\mathbb{R}$ satisfying:
+	\[
+		\left(\frac{\mathrm{d}}{\mathrm{d}x}f\right)(x_0) :=
+		\left.\frac{\mathrm{d}}{\mathrm{d}x}\right|_{x_0} f.
+	\]
+	$\frac{\mathrm{d}}{\mathrm{d}x}f$ is called the \textbf{derivative function}.
+	It is denoted as $\frac{\mathrm{d}}{\mathrm{d}x}f\equiv f'$ simultaneously when it is clear whom to take the derivative from (always $x$).
+	It is also write as $\dot{f}$ when taking the derivative from $t$.
+\end{definition}
+
+There are abundant corollaries on the field of derivative and are needless to say more. Let's turn our attention to
+scalar field over $\mathbb{R}^n$, and we'll define the \textbf{derivative operator} and \textbf{directional derivative}
+as well as the \textbf{gradient}. And we'll further study their geometric significance in the next section.
+
+\begin{definition} [Parital Derivative]
+	Given a function $f: \mathbb{R}^n\to\mathbb{R}, \mathbf{x}=(x^1,\dots,x^n)\mapsto y=f(\mathbf{x})$. The limitation is defined as the \textbf{partial derivative} at $\mathbf{x_0}$:
+	\[
+		\left.\frac{\partial}{\partial x^i}\right|_{\mathrm{x_0}} f:=
+		\lim_{\Delta x^i\to 0}\frac{f(\dots,x_0^i+\Delta x^i,\dots)-f(\mathbf{x_0})}{\Delta x^i}=
+		\left.\frac{\mathrm{d}}{\mathrm{d}x^i}\right|_{x^i=x_0^i\atop\Delta x^i=0} f(x_0^1,\dots,x^i,\dots,x_0^n).
+	\]
+\end{definition}
+
+\begin{definition}
+	\[
+		\left(\frac{\partial}{\partial x^i}f\right)(\mathbf{x_0}):=
+		\left.\frac{\partial}{\partial x^i}\right|_{\mathrm{x_0}} f
+	\]
+\end{definition}
+
+\begin{theorem}[Chain Rule]
+	Given a function $f: \mathbb{R}^n\to\mathbb{R}^m, \mathbf{x}\mapsto\mathbf{y}=f(\mathbf{x})$ that eats n variables and spit out m variables where $\mathbf{x}=(x^1,\dots,x^n), \mathbf{y}=(y^1,\dots,y^m)$.
+	It can be thought of a vector $\langle f_1,\dots,f_n\rangle$ in which $f_i: \mathbb{R}\to\mathbb{R}^m, \mathbf{x}\mapsto y^i=f(\mathbf{x})$.
+	All partial derivatives can be written in a maritx, which we called a \textbf{partial derivative tensor}:
+	\[
+		\frac{\partial f_j}{\partial x^i} = 
+		\begin{bmatrix}
+			\frac{\partial f_1}{\partial x^1} & \cdots & \frac{\partial f_1}{\partial x^n} \\
+			\vdots & \ddots & \vdots \\
+			\frac{\partial f_m}{\partial x^1} & \cdots & \frac{\partial f_m}{\partial x^n}
+		\end{bmatrix}.
+	\]
+	Now we use vectors to represent a function chain: $\mathbf{z}=g(\mathbf{y}), \mathbf{y}=f(\mathbf{x})$. Then $\mathbf{z}=g(f(\mathbf{x}))=(g\circ f)(\mathbf{x})$. As can vertify,
+	The partial derivative tensor of $z$ over $x$ is (here $z=g\circ f$ also):
+	\[
+		\frac{\partial z^k}{\partial x^i} = \frac{\partial g_k}{\partial y^j}\frac{\partial f_j}{\partial x^i},
+	\]
+	which is called the \textbf{Chain Rule}.
+\end{theorem}
+
+The partial derivative tensor written above is also a \textbf{Jacobian Matrix} of a vector-valued function. But isn't it better to take tensor notation?
+When so, the gradient of each components can be represent more concise and intuitive!
+\[
+	D\vec{f} = \nabla f_j = \frac{\partial f_j}{\partial x^i}.
+\]
+
+\begin{example}
+	\begin{itemize}
+		\item[(1)] Calculate the gradient of $f(x,y)=\sin(xy)+\frac{x^2}{1+\ln y}$ at $(\pi,1)$.
+		\begin{solution}
+			$\frac{\partial f}{\partial x} = y\cos(xy)+\frac{2x}{1+\ln y},
+			\quad \frac{\partial f}{\partial y} = x\cos(xy)-\frac{x^2}{y(1+\ln y)^2}$.
+
+			Then $\nabla f|_{(\pi,1)}=(\left.\frac{\partial f}{\partial x}\right|_{(\pi,1)}, \left.\frac{\partial f}{\partial y}\right|_{(\pi,1)})=
+			(-1+2\pi, -\pi-\pi^2)$.
+		\end{solution}
+		\item[(2)] Given a composite function $z=f(x+y^2, ye^x)$, calculate $\frac{\partial z}{\partial x}$.
+		\begin{solution}
+			Denote that $z=f(u,v)=f(u^1(x,y),u^2(x,y))$. According to the Chain Rule:
+		
+			$\frac{\partial z}{\partial x}=\frac{\partial f}{\partial u^i}\frac{\partial u^i}{\partial x}=\frac{\partial f}{\partial u^1}+\frac{\partial f}{\partial u^2}ye^x$.
+		\end{solution}
+	\end{itemize}
+\end{example}
+
+\begin{definition}[Derivative Operator]
+	For a scalar field $f: \mathbb{R}^n\to\mathbb{R}$, consider a vector in $\mathbb{R}^n$: $\mathbf{v}=\langle v^1,\dots,v^n\rangle$.
+	Define a coordinate function $x: p\mapsto \mathbf{x}=x(p)\in\mathbb{R}^n$, which can be determined by $x^i: p\mapsto x^i=x^i(p)\in\mathbb{R}$, $\mathbf{x}=(x^1,\dots,x^n)$.
+	Then the coordinate of a neighbor in $\mathbf{v}$ direction can be determined by a function $c(t)=\mathbf{x}+t\mathbf{v}=(x^1+tv^1,\dots,x^n+tv^n)$.
+
+	The \textbf{derivative operator} $D_{v,x_0}: C^{k}\to\mathbb{R}$ over $p$ is a map satisfying:
+	\[
+		D_{v,p}f := \lim_{t\to 0}\frac{f(c(t))-f(\mathbf{x})}{t} =
+		\left.\frac{\mathrm{d}}{\mathrm{d} t}\right|_{t=0} (f\circ c)
+	\]
+\end{definition}
+
+By using the Chain Rule, we get $\left.\frac{\mathrm{d}}{\mathrm{d} t}\right|_{t=0} (f\circ c) = v^i \left.\frac{\partial}{\partial x^i}\right|_{p} f$.
+Since this is established for $\forall x_0 \in D(f)$, we obtain:
+$D_{v}f = v^i \cdot \left(\frac{\partial}{\partial x^i}f\right)$.
+
+\begin{definition}[Directional Derivative]
+	Construct a function $D_vf: D(f)\to\mathbb{R}$ that satisfies:
+	\[
+		D_{v}f := v^i\cdot \left(\frac{\partial}{\partial x^i}f\right), \quad
+		\left.D_vf\right|_p := v^i\cdot \left.\frac{\partial}{\partial x^i}\right|_p f.
+	\]
+	This means the \textbf{directional derivative} in the direction of $\mathbf{v}$.
+\end{definition}
+
+At Figure \ref{dirder} we can see that $\left\{\left.\frac{\partial}{\partial x^i}\right|_p\right\}$ spans a vector space as is easy to prove.
+And if we construct a map from a vector $\mathbf{v}$ to the partial derivatives at point $p$, we can prove that the map is a algebraic isomorphism!
+That means we can consider a vector
+
+
+
+\begin{figure}[!ht]
+	\centering
+    \include{chapters/chapter1/fig3}
+    \caption{A vector and its derivatives}
+    \label{dirder}
+\end{figure}
+
+
+
+There is something to note (to be change):
+
+\begin{itemize}
+	\item[(1)] There are at least two notations of denoting the derivative over $p$:
+		$\left.\frac{\mathrm{d}}{\mathrm{d}x}\right|_p f$ and $\frac{\mathrm{d}}{\mathrm{d}x}f(p)$.
+		We choose the first one as another one causes some ambiguity. The derivative at $p$ is a map $C^{\infty}\to \mathbb{R}$
+		which eats a function and spit out a real number. And the second one seems that $f$ eats $p$ and spit out a real number first
+		as if the derivative acts on $\mathbb{R}$! Right now $\left.\frac{\mathrm{d}}{\mathrm{d}x}\right|_p$ is just the very function defined
+		over $p$ and its neighborhood, but if we pass through all the point in the domain we obtain a function from $\mathbb{R}$ to $\mathbb{R}$!
+		
+		\begin{definition}[Derivative Function $\frac{\mathrm{d}}{\mathrm{d}x}f$]
+			Construct a function $\frac{\mathrm{d}}{\mathrm{d}x}f: \mathbb{R}\to\mathbb{R}$ satisfying:
+			\[\left(\frac{\mathrm{d}}{\mathrm{d}x}f\right)(p) := \left.\frac{\mathrm{d}}{\mathrm{d}x}\right|_p f,\]
+			which shares the same domain with $f$. $\frac{\mathrm{d}}{\mathrm{d}x}f$ is called the \textbf{derivative function}.
+            \label{derf}
+		\end{definition}
+
+		\begin{example}
+			Calculate the derivative of the function $f(x)=x^2$
+			\begin{solution}
+			Let $c(t)=(p+vt)$.
+			\[
+				\left.\frac{\mathrm{d}}{\mathrm{d}x}\right|_p f =
+				\lim_{t\to 0}\frac{(p+vt)^2-p^2}{t} =
+				\lim_{t\to 0}(2vp+v^2t) = 2vp + o(t) = 2vp.
+			\]
+			
+			So $\frac{\mathrm{d}}{\mathrm{d}x}f$ satisfies:
+			\[
+				\left(\frac{\mathrm{d}}{\mathrm{d}x}f\right)(p) =
+				\left.\frac{\mathrm{d}}{\mathrm{d}x}\right|_p f = 2vp,
+				\quad \forall p \in D(f).
+			\]		
+			\end{solution}
+		\end{example}
+
+		Definition \ref{derf} seems to be redundant because we see no difference in numerical values.
+		But we shall keep in mind that derivative function is a constructed function. It assigns
+		a derivative value to each point but is defined by $\left.\frac{\mathrm{d}}{\mathrm{d}x}\right|_p$, that is,
+		a map from the origin function to a derivative value over a certain point $p$.
+
+		So how shall we view derivatives? A value, a map, or a real-valued function? The difference between the first two point
+		is the same that $y$ between $y(x)$ in the function $y=y(x)$. So let's clarify it:
+		\begin{itemize}
+			\item[(i)] $\left.\frac{\mathrm{d}}{\mathrm{d}x}\right|_p$ is a map $C^{\infty}\to\mathbb{R}$ called a \textbf{derivative operator}.
+			\item[(ii)] $\left.\frac{\mathrm{d}}{\mathrm{d}x}\right|_p f$ is the image of the derivative operator, which called a \textbf{derivative}.
+			\item[(iii)] $\left(\frac{\mathrm{d}}{\mathrm{d}x}f\right)$ is a real-valued function called a \textbf{derivative function}.
+			\item[(iv)] $\left(\frac{\mathrm{d}}{\mathrm{d}x}f\right)(p)$ is the image of the derivative function, which is the same as (ii) on the same point.
+		\end{itemize}
+
+	\item[(2)] Notice that I use $c(t)=x_0+vt$ instead of $x_0+\Delta x$, because I want to introduce the parameter $t$ into consideration.
+		The reason is, if we talk about the process of taking the derivative, the picture in mind is that a point is approaching $p$ gradually.
+		Simply use $x \in D(f) \subseteq \mathbb{R}$ is a little vague because we think of $x$ the axis function of point $p$ ($x_0=x(p)$), and
+		we will see later that it fails to work when it comes to implicit function or multivariate function. So, we need another purer quantity to
+		measure and represent the limit process.
+\end{itemize}
+
+\[
+	\left.\frac{\mathrm{d}}{\mathrm{d}x}\right|_p f =
+	\left.\frac{\mathrm{d}}{\mathrm{d}x}\right|_{t=0} (f\circ c) =
+	v \left.\frac{\mathrm{d}}{\mathrm{d}x}\right|_p f
+\]
+
+In $y=f(x)$
+
+\begin{definition}[Name]
+    Nothing. 
+\end{definition}
+
+
+% https://q.uiver.app/#q=WzAsNCxbMiwxLCJVIl0sWzQsMiwiXFxtYXRoYmJ7Un0iXSxbMCwxLCJcXG1hdGhiYntSfXxfdCJdLFs0LDAsIlxcbWF0aGJie1J9Il0sWzIsMCwiYyh0KSJdLFswLDEsImYiLDJdLFswLDMsIkRfdmZ8X3AiXSxbMiwzLCJcXGxlZnQuXFxmcmFje1xcbWF0aHJte2R9fXtcXG1hdGhybXtkfXR9XFxyaWdodHxfe3Q9MH1mKGModCkpIiwwLHsiY3VydmUiOi0zfV0sWzUsNiwiRF92IiwyLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dXQ==
+\[\begin{tikzcd}[row sep=large]
+	&&&& {\mathbb{R}} \\
+	{\mathbb{R}|_t} && U \\
+	&&&& {\mathbb{R}}
+	\arrow["{\left.\frac{\mathrm{d}}{\mathrm{d}t}\right|_{t=0}f(c(t))}", curve={height=-18pt}, from=2-1, to=1-5]
+	\arrow["{c(t)}", from=2-1, to=2-3]
+	\arrow[""{name=0, anchor=center, inner sep=0}, "{D_vf|_p}", from=2-3, to=1-5]
+	\arrow[""{name=1, anchor=center, inner sep=0}, "f"', from=2-3, to=3-5]
+	\arrow["{D_v}"', shorten <=4pt, shorten >=4pt, Rightarrow, from=1, to=0]
+\end{tikzcd}\]
