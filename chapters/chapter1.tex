@@ -1,12 +1,116 @@
 \chapter{Geometry in Euclidean Space}
 
-In this section, we are going to derive what a tangent vector or a cotangent vector is,
+In this chapter, we are going to derive what a tangent vector or a cotangent vector is,
 give them a good definition and have a new view on differential and derivative. \textit{(We will
 ignore many detials in order to grasp the very idea instead of being lost in tedious derivation.)}
 
+
+We must wander what is a geometry in our space. Is it a curve surface or a field? There are
+two basic views on it. If we think of it as a curve surface, that is to say it's essence is beyond
+our given space. \textit{(Later we'll call it as a submanifold embedded into our given space.)}
+As a curve surface is two-dimensional, a point on the surface can be identified within two coordinates
+$(u, v) \in C \subset \mathbb{R}^2$, where $C$ denotes a collection of points on the curve surface
+and is a subset of $\mathbb{R}^2$. \textit{(We shall clarify what "ponits" actually mean later.)}
+Now we only adopt an intrinsic perspective on the surface without observing it's curvature until we
+use a \textbf{map} $\phi: C \to \mathbb{R}^3, (u,v) \mapsto (x,y,z)=\phi(u,v)$.
+
+\begin{figure}[!ht]
+    \centering
+    \include{chapters/chapter1/fig1}
+\end{figure}
+
+
+\begin{figure}[!ht]
+	\centering
+    \include{chapters/chapter1/fig2}
+    \caption{A scalar field over $\mathbb{R}^2$}
+\end{figure}
+
+
+Another way to think of a geometry is \textbf{scalar field} $f: \mathbb{R}^2 \to \mathbb{R}, (x,y) \mapsto f(x,y)$
+If we write this way: $z=f(x,y)$ where $z$ represents each scalar value onto each point $(x,y)$.
+There is a relationship between $z$ and $(x,y)$ that can be written as $((x,y),z)$ or just $(x,y,z)$.
+All such relationships constitude a set $\mathbb{R}^3=\mathbb{R}^2 \times \mathbb{R}$
+
+However the relationship between $x,y,z$ can be wider given by $F(x,y,z)=0$. $F$ is a strange function that
+can be considered as a constant scalar field. Before we use an simpler example to gain a deeper understanding of it,
+let's clarify some terms in the context.
+
+\begin{definition}[Relation]
+	\cite{1}
+	A relation is a subset of a finite Cartes	`ian power $A^n=A\times\cdots\times A$ of a given set $A$,
+	i.e. a set of tuples $(a_1,\dots,a_n)$ of $n$ elements of $A$.
+
+	A subset $R\subseteq A^n$ is called an $n$-place, or an $n$-ary, relation on $A$.
+	The number \textbf{n} is called the \textbf{rank}, or \textbf{type}, of the relation $R$.
+	The notation $R(a_1,\dots,a_n)$ signifies that $(a_1,\dots,a_n)\in R$.
+
+	The set $A^n$ and the empty subset $\emptyset$ in $R^n$ are called, respectively, the \textbf{universal relation} and the \textbf{zero relation} of rank n on $A$.
+	The diagonal of the set $A^n$, i.e. the set $\Delta={(a,a,\dots,a):a\in A}$ is called the \textbf{equality relation} on $A$.
+
+\end{definition}
+
+The set of all $n$-ary relations on $A$ is a \textbf{Boolean algebra} relative to the operations $\cup, \cap, '$.
+An $(n+1)$-place relation $F$ on $A$ is called functional if for any elements $a_1,\dots,an, a,b$, from $A$
+it follows from $F(a_1,\dots,a_n,a)$ and $F(a_1,\dots,a_n,b)$ that $a=b$.
+
+\begin{definition}[Binary Relation]
+	\cite{2}
+	A binary relation is a predicate on a given set.
+	A binary relation is a special case of a relation. Let $R \subseteq A \times A$.
+	If $(a,b) \in R$, then one says that the element $a$ is in binary relation $R$ to the element $b$.
+	An alternative notation for $(a,b) \in R$ is $aRb$.
+
+	The empty subset $\emptyset$ in $A\times A$ and the set $A\times A$ itself are called, respectively,
+	the nil relation and the universal relation in the set $A$.
+	The diagonal of the set $A\times A$, i.e. the set $\Delta={(a,a):a\in A}$,
+	is the \textbf{equality relation} or the \textbf{identity binary relation} in $A$.
+
+\end{definition}
+
+Let $R,R_1,R_2$ be binary relations in a set $A$. In addition to the set-theoretic operations of union $R_1\cup R_2$,
+intersection $R_1\cap R_2$, and negation or complementation $R'=(A\times A)\backslash R$,
+one has the inversion (also inverse, converse or transpose)
+\[R^{-1}={(a,b):(b,a)\in R},\]
+as well as the operation of multiplication (or composition):
+\[R_1\circ R_2={(a,c)\in A\times A:(\exists b\in A)(aR_1b\ and\ bR_2c)}.\]
+
+\begin{definition}[Mapping]
+	\cite{3}
+	In set theory mappings are special binary relations.A mapping $f$ from a set $A$ to a set $B$ is an (ordered) triple $f=(A,B,G_f)$
+ 	where $Gf\subset A\times B$ such that
+
+	\begin{itemize}
+		\item[(1)] if $(x,y)$ and $(x,y')\in G_f$ then $y=y'$, and
+		\item[(2)] the projection $\pi_1(G_f)=\{x|(x,y)\in G_f\}=A.$
+	\end{itemize}
+
+	Condition (1) expresses that $f$ is single-valued. and condition (2) that it is defined on $A$.
+	$A$ is the \textbf{domain}, $B$ is the \textbf{codomain}, and $G_f$ is the \textbf{graph} of the mapping. Therefore, in this setting, mappings are equal if and only if all three corresponding components (domain, codomain, and graph) are equal.
+	
+	The mapping is usually denoted as $f:A\to B$, and $a\mapsto f(a)$ where $f(a):=b\Leftrightarrow (a,b)\in G_f$ is the value of $f$ at $a$.
+
+\end{definition}
+
+If two mappings $f_1=(A_1,B_1,G_1)$ and $f_2=(A_2,B_2,G_2)$ satisfy $A_1\subset A_2$, $B_1\subset B_2$ and $G_1\subset G_2$
+then $f_2$ is called an \textbf{extension} of $f_1$, and $f_1$ a \textbf{restriction} of $f_2$.
+In this case, $f_1$ is often denoted as $f_2|A_1$ and, clearly, $f_1(a)=f_2(a)$ holds for all $a\in A_1$.
+
+\begin{center}
+	\begin{tcolorbox}[colback=gray!10,%gray background
+					  colframe=black,% black frame colour
+					  width=12cm,% Use 8cm total width,
+					  arc=1mm, auto outer arc,
+					  boxrule=0.5pt,
+					 ]
+	Notice that functions to be talked below are always $C^{\infty}$ (smooth) without special illustration.
+	\end{tcolorbox}
+\end{center}
+
+
 \input{chapters/chapter1/section1.tex}
 
-\section{Derivative and Tangent Vector}
+
 \section{Differential and Cotangent Vector}
 \section{Curve Theory and Surface Theory}
 \section{Analytic Geometry}
